@@ -1,10 +1,8 @@
-#include <GL/gl.h> // File header per la libreria OpenGL
-#include <GL/glut.h> // File header per la libreria GLUT
+#include "GL/gl.h" // File header per la libreria OpenGL
+#include "GL/glut.h" // File header per la libreria GLUT
 #include <stdlib.h> // File header per usare 'exit()'
 #include <math.h>       /* sin */
 #include <iostream>
-#include <chrono>
-#include <thread>
 
 #define PI 3.14159265
 
