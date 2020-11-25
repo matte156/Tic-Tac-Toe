@@ -1,7 +1,6 @@
 # Tic-Tac-Toe
-=============
 
-##1^st step: create build folder
+##1st step: create build folder
 
 You must create folder ``*Build*'' in this folder and entry in this one.
 
@@ -9,18 +8,18 @@ You must create folder ``*Build*'' in this folder and entry in this one.
 
 `cd Build`
 
-##2^nd step: install dependencies
+##2nd step: install dependencies
 
 `sudo apt-get install freeglut3-dev cmake`
 
-##3^rd step: run cmake file
+##3rd step: run cmake file
 
 `cmake ..`
 
-##4^st step: run make file
+##4st step: run make file
 
 `make`
 
-##5^st step: run file
+##5st step: run file
 
 `./tic-tac-toe`
