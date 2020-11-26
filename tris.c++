@@ -162,7 +162,7 @@ void mouseFunction(int button, int state, int x, int y){
 
 
 int main(int argc, char** argv){
-    cout << cos(45*PI/180) << endl;
+    // cout << cos(45*PI/180) << endl;
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB);
     glutInitWindowSize(498,498);
@@ -175,6 +175,8 @@ int main(int argc, char** argv){
     return 0;
 }
 
+bool clearNextAction = false;
+
 void draw(){
         glClearColor (1.0f, 1.0f, 1.0f, 1.0f); // Sfondo nero
         glClear (GL_COLOR_BUFFER_BIT);         // Cancella la scena
@@ -185,7 +187,24 @@ void draw(){
 
         backGround();
 
-        checkWinner();
+        if (clearNextAction == true){
+            gameOver();
+        }
+
+        if (checkWinner() == 0){
+            cout << "We don't have a winner" << endl;
+        }
+
+        else if (checkWinner() == 1){
+            cout << "X is a winner" << endl;
+            clearNextAction = true;
+        }
+
+        else if (checkWinner() == 2){
+            cout << "O is a winner" << endl;
+            clearNextAction = true;
+        }
+
 
         XO = false;
         
@@ -308,36 +327,40 @@ int checkWinner(){
     for (int i = 0; i < coordinateCount -1; i = i+2){
         coordinateX[countCoordinateX][0] = coordinate[i][0];
         coordinateX[countCoordinateX][1] = coordinate[i][1];
-        // cout << coordinateX[countCoordinateX][0] << "," << coordinateX[countCoordinateX][1] << " ";
         countCoordinateX++;
     }
-
-    // cout << endl;
-
-    // cout << "Gli zeri sono su: ";
 
     for (int i = 1; i < coordinateCount -1; i = i+2){
         coordinateO[countCoordinateO][0] = coordinate[i][0];
         coordinateO[countCoordinateO][1] = coordinate[i][1];
-        // cout << coordinateO[countCoordinateO][0] << "," << coordinateO[countCoordinateO][1] << " ";
         countCoordinateO++;
     }
 
-    // cout << endl;
 
     int coordinateToCheck[] = {1, 1};
-    for (int i = 0; i<6; i++){
-        int horizontalAxO = 0;
+    for (int i = 0; i<3; i++){
+        int horizontalAxX = 0;
         for(int j = 0; j < countCoordinateX; j++){
-            if (coordinateX[countCoordinateX][1] == coordinateToCheck[1]){
+            if (coordinateX[j][1] == coordinateToCheck[1]){
+                horizontalAxX ++;
+            }
+        }
+        if (horizontalAxX == 3){
+            return 1;
+        }
+        int horizontalAxO = 0;
+        for(int j = 0; j < countCoordinateO; j++){
+            if (coordinateO[j][1] == coordinateToCheck[1]){
                 horizontalAxO ++;
             }
         }
-        cout << horizontalAxO << endl;
-        for(int j = 0; j < countCoordinateO; j++){
-            //cout << j << endl;
+        if (horizontalAxO == 3){
+            return 2;
         }
+        coordinateToCheck[1]++;
     }
-    
+
+    cout << endl;
+
     return 0;
 }
