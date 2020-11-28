@@ -415,6 +415,38 @@ int checkWinner(){
         }
     }
 
+    int obliqueAxO = 0;
+    for(int j = 0; j < countCoordinateO; j++){
+        if (coordinateO[j][0] == 1 && coordinateO[j][1] == 1){
+            obliqueAxO++;
+        }
+        if (coordinateO[j][0] == 2 && coordinateO[j][1] == 2){
+            obliqueAxO++;
+        }
+        if (coordinateO[j][0] == 3 && coordinateO[j][1] == 3){
+            obliqueAxO++;
+        }
+        if (obliqueAxO == 3){
+            return 2;
+        }
+    }
+
+    obliqueAxO = 0;
+    for(int j = 0; j < countCoordinateO; j++){
+        if (coordinateO[j][0] == 1 && coordinateO[j][1] == 3){
+            obliqueAxO++;
+        }
+        if (coordinateO[j][0] == 2 && coordinateO[j][1] == 2){
+            obliqueAxO++;
+        }
+        if (coordinateO[j][0] == 3 && coordinateO[j][1] == 1){
+            obliqueAxO++;
+        }
+        if (obliqueAxO == 3){
+            return 2;
+        }
+    }
+
     cout << endl;
 
     return 0;
