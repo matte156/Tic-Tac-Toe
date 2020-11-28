@@ -1,12 +1,10 @@
-## Tic-Tac-Toe
+# Tic-Tac-Toe
 
 ## 1st step: create build folder
 
 You must create folder "**Build**" in this folder and entry in this one.
 
-`mkdir Build 
-
-cd Build`
+`mkdir Build cd Build`
 
 ## 2nd step: install dependencies
 
