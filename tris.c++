@@ -188,6 +188,7 @@ void draw(){
         backGround();
 
         if (clearNextAction == true){
+            clearNextAction = false;
             gameOver();
         }
 
@@ -358,6 +359,60 @@ int checkWinner(){
             return 2;
         }
         coordinateToCheck[1]++;
+    }
+
+    for (int i = 0; i<3; i++){
+        int VerticalAxX = 0;
+        for(int j = 0; j < countCoordinateX; j++){
+            if (coordinateX[j][0] == coordinateToCheck[0]){
+                VerticalAxX ++;
+            }
+        }
+        if (VerticalAxX == 3){
+            return 1;
+        }
+        int VerticalAxO = 0;
+        for(int j = 0; j < countCoordinateO; j++){
+            if (coordinateO[j][0] == coordinateToCheck[0]){
+                VerticalAxO ++;
+            }
+        }
+        if (VerticalAxO == 3){
+            return 2;
+        }
+        coordinateToCheck[0]++;
+    }
+
+    int obliqueAxX = 0;
+    for(int j = 0; j < countCoordinateX; j++){
+        if (coordinateX[j][0] == 1 && coordinateX[j][1] == 1){
+            obliqueAxX++;
+        }
+        if (coordinateX[j][0] == 2 && coordinateX[j][1] == 2){
+            obliqueAxX++;
+        }
+        if (coordinateX[j][0] == 3 && coordinateX[j][1] == 3){
+            obliqueAxX++;
+        }
+        if (obliqueAxX == 3){
+            return 1;
+        }
+    }
+
+    obliqueAxX = 0;
+    for(int j = 0; j < countCoordinateX; j++){
+        if (coordinateX[j][0] == 1 && coordinateX[j][1] == 3){
+            obliqueAxX++;
+        }
+        if (coordinateX[j][0] == 2 && coordinateX[j][1] == 2){
+            obliqueAxX++;
+        }
+        if (coordinateX[j][0] == 3 && coordinateX[j][1] == 1){
+            obliqueAxX++;
+        }
+        if (obliqueAxX == 3){
+            return 1;
+        }
     }
 
     cout << endl;
