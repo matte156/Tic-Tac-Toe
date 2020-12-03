@@ -1,8 +1,9 @@
-#include "GL/gl.h" // File header per la libreria OpenGL
-#include "GL/glut.h" // File header per la libreria GLUT
+#include <GL/gl.h> // File header per la libreria OpenGL
+#include <GL/glut.h> // File header per la libreria GLUT
 #include <stdlib.h> // File header per usare 'exit()'
 #include <math.h>       /* sin */
 #include <iostream>
+#include "AI/minumAiFunction.hpp"
 
 #define PI 3.14159265
 
@@ -172,6 +173,8 @@ int main(int argc, char** argv){
     init();
     //glutDisplayFunc(draw);
     glutMainLoop();
+    MiniMax prova = MiniMax(1);
+    ~prova();
     return 0;
 }
 
@@ -451,3 +454,4 @@ int checkWinner(){
 
     return 0;
 }
+

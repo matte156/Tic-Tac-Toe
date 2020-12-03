@@ -1,2 +1,6 @@
 a.out
 .vscode
+.kdev4/
+Tic-Tac-Toe.kdev4
+build
+AI/minimax.o
