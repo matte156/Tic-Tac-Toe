@@ -9,7 +9,7 @@ int main(){
     MiniMax  * prova = new MiniMax(a, 5);
     // int a[2][2] = {{1,2}, {1,2}};
     // MiniMax * prova2 = new MiniMax(a);
-    
+    cout << "";
     // delete prova2;
     delete prova;
     
