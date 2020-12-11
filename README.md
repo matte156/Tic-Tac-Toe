@@ -8,6 +8,8 @@ You must create folder "**Build**" in this folder and entry in this one.
 
 ## 2nd step: install dependencies
 
+In terminal run:
+
 `sudo apt-get install freeglut3-dev cmake`
 
 ## 3rd step: run cmake file
