@@ -12,9 +12,11 @@ class MiniMax{
         int sizePosition;
         int avaiblePositionArray[0][2];
         int avaiblePosition(){
-            int coordinateToCheck[] = {1,1};
             for (int i = 0; i < 9; i++){
-                
+                cout << i/3+1 << "," << i - i/3*3+1 << endl;
+                for (int j = 0; j < sizePosition; j++){
+                    
+                }
             }
             return 0;
         }
