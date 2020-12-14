@@ -25,16 +25,12 @@ class MiniMax{
             for (int i = 0; i < 9; i++){
                 cout << BLUE << i/3+1 << "," << i - i/3*3+1 << RESET << endl;
                 int x = i/3+1;
-                int y i/3+1;
+                int y = i - i/3*3+1;
+                cout << RED << x << "," << BLUE << y << RESET << endl;
                 for (int j = 0; j < sizePosition; j++){
-                    cout << i << endl;
-                    cout << position[j][0] << "," << position[j][1] << " " << i/3+1 << "," << i/3*3+1 << endl;
-                    if(position[j][0] == i/3+1 && position[j][1] == i/3*3+1){
-                        //cout << position[j][0] << "," << position[j][1] << " " << i/3+1 << "," << i/3*3+1 << endl;
-                        cout << "divisible" << endl;
-                    }
-                    else {
 
+                    if(position[j][0] == x && position[j][1] == y){
+                        cout << "Divisible" << endl;
                     }
                 }
             }
