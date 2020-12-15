@@ -19,10 +19,6 @@ int main(){
     MiniMax  * prova2 = new MiniMax();
     // int a[2][2] = {{1,2}, {1,2}};
     // MiniMax * prova2 = new MiniMax(a);
-    cout << RED << "Prova " << GREEN  << GREEN <<"Prova " << BLACK << "Prova " << YELLOW << "Prova " << BLUE << "Prova " << PURPLE << "Prova " << CYAN << "Prova " << WHITE << "Prova" << endl;
-    cout << '\r';
-    cout << RED << "HAHAHAHAHA" << endl;
-    cout.flush();
     delete prova2;
     delete prova;
     

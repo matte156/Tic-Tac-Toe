@@ -20,19 +20,31 @@ class MiniMax{
     private:
         int** position;
         int sizePosition;
-        int avaiblePositionArray[0][2];
+        int avaiblePositionArray[9][2];
+        int sizeAvaiblePositionArray = 0;
         int avaiblePosition(){
             for (int i = 0; i < 9; i++){
-                cout << BLUE << i/3+1 << "," << i - i/3*3+1 << RESET << endl;
+                //cout << BLUE << i/3+1 << "," << i - i/3*3+1 << RESET << endl;
                 int x = i/3+1;
                 int y = i - i/3*3+1;
-                cout << RED << x << "," << BLUE << y << RESET << endl;
+                //cout << RED << x << "," << BLUE << y << RESET << endl;
+                bool divisible = false;
                 for (int j = 0; j < sizePosition; j++){
-
+                    //cout << position[j][0] << "," << position[j][1] << endl;
                     if(position[j][0] == x && position[j][1] == y){
-                        cout << "Divisible" << endl;
+                        divisible = true;
+                        break;
                     }
                 }
+                if (!divisible) {
+                    cout << GREEN << x << "," << y << RESET << endl;
+                    avaiblePositionArray[sizeAvaiblePositionArray][0] = x;
+                    avaiblePositionArray[sizeAvaiblePositionArray][1] = y;
+                    sizeAvaiblePositionArray++;
+                }
+            }
+            for(int i = 0; i < sizeAvaiblePositionArray; i++){
+                cout << avaiblePositionArray[i][0] << "," << avaiblePositionArray[i][1] << endl;
             }
             return 0;
         }
