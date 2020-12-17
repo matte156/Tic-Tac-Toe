@@ -44,7 +44,6 @@ class MiniMax{
             for(int i = 0; i < sizeAvaiblePositionArray; i++){
                 cout << GREEN << avaiblePositionArray[i][0] << "," << avaiblePositionArray[i][1] << RESET << endl;
             }
-            checkWinner();
             return 0;
         }
         void initialize(int size) {
@@ -61,7 +60,28 @@ class MiniMax{
             }
         }
         int checkWinner(){
-            
+            int coordinateToCheck[] = {1,1};
+            int horizontalCheck = 0;
+            int verticalCheck = 0;
+            for (int j = 0; j < 3; j++) {
+                for (int i = 0; i < sizePosition; i = i+2){
+                    if (position[i][1] == coordinateToCheck[1]) {
+                        horizontalCheck ++;
+                    }
+                    if (position[i][0] == coordinateToCheck[0]) {
+                        verticalCheck ++;
+                    }
+                }
+                cout << RED << verticalCheck << ","  << horizontalCheck << RESET << endl;
+                if (horizontalCheck == 3) {
+                    cout << "The winner is X" << endl;
+                }
+                if (verticalCheck == 3) {
+                    cout << "The winner is X" << endl;
+                }
+                coordinateToCheck[0]++;
+                coordinateToCheck[1]++;
+            }
             return 0;
         }
         void clear() {
@@ -75,6 +95,7 @@ class MiniMax{
             initialize(size);
             setArrayPosition(array, size);
             avaiblePosition();
+            checkWinner();
         }
         MiniMax(){
             cout << "\033[0;31mYou must have more arguments! \033[0m" << endl;
