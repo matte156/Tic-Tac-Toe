@@ -46,6 +46,17 @@ class MiniMax{
             for(int i = 0; i < sizeAvaiblePositionArray; i++){
                 cout << avaiblePositionArray[i][0] << "," << avaiblePositionArray[i][1] << endl;
             }
+            checkWinner();
+            return 0;
+        }
+        void initialize(int size) {
+            position = new int*[size];
+            for (int i = 0; i < size; ++i){
+                position[i] = new int[2];
+            }
+        }
+        int checkWinner(){
+            
             return 0;
         }
     public:
@@ -53,10 +64,7 @@ class MiniMax{
             cout << "\033[0;31mYou must have more arguments! \033[0m" << endl;
         }
         MiniMax(int array[][2], int size){
-            position = new int*[size];
-            for (int i = 0; i < size; ++i){
-                position[i] = new int[2];
-            }
+            initialize(size);
             for (int i = 0; i < size; i++){
                 position[i][0] = array[i][0];
                 position[i][1] = array[i][1];
