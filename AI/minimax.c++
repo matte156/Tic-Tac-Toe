@@ -14,7 +14,9 @@ using namespace std;
 
 int main(){
     int a[][2] =  {{1,1},{2,2},{1,2},{3,1},{2,1}};
+    int b[][2] = {{1,1},{2,2},{1,2},{3,1},{2,1},{3,3},{1,3}};
     MiniMax  * prova = new MiniMax(a, 5);
+    prova->updateArrayPosition(b,7);
     delete prova;
     
     return 0;

@@ -23,28 +23,26 @@ class MiniMax{
         int avaiblePositionArray[9][2];
         int sizeAvaiblePositionArray = 0;
         int avaiblePosition(){
+            cout << PURPLE << "I check avaible position..." << endl;
             for (int i = 0; i < 9; i++){
-                //cout << BLUE << i/3+1 << "," << i - i/3*3+1 << RESET << endl;
                 int x = i/3+1;
                 int y = i - i/3*3+1;
-                //cout << RED << x << "," << BLUE << y << RESET << endl;
                 bool divisible = false;
                 for (int j = 0; j < sizePosition; j++){
-                    //cout << position[j][0] << "," << position[j][1] << endl;
                     if(position[j][0] == x && position[j][1] == y){
                         divisible = true;
                         break;
                     }
                 }
                 if (!divisible) {
-                    cout << GREEN << x << "," << y << RESET << endl;
+                    //cout << GREEN << x << "," << y << RESET << endl;
                     avaiblePositionArray[sizeAvaiblePositionArray][0] = x;
                     avaiblePositionArray[sizeAvaiblePositionArray][1] = y;
                     sizeAvaiblePositionArray++;
                 }
             }
             for(int i = 0; i < sizeAvaiblePositionArray; i++){
-                cout << avaiblePositionArray[i][0] << "," << avaiblePositionArray[i][1] << endl;
+                cout << GREEN << avaiblePositionArray[i][0] << "," << avaiblePositionArray[i][1] << RESET << endl;
             }
             checkWinner();
             return 0;
@@ -55,20 +53,35 @@ class MiniMax{
                 position[i] = new int[2];
             }
         }
+        void setArrayPosition(int array[][2], int size) {
+            for (int i = 0; i < size; i++){
+                position[i][0] = array[i][0];
+                position[i][1] = array[i][1];
+                cout << array[i][0] << "," << array[i][1] << endl;
+            }
+        }
         int checkWinner(){
             
             return 0;
         }
+        void clear() {
+            sizeAvaiblePositionArray = 0;
+        }
     public:
+        void updateArrayPosition(int array[][2], int size) {
+            cout << "I'm updating position..." << endl;
+            sizePosition = size;
+            clear();
+            initialize(size);
+            setArrayPosition(array, size);
+            avaiblePosition();
+        }
         MiniMax(){
             cout << "\033[0;31mYou must have more arguments! \033[0m" << endl;
         }
         MiniMax(int array[][2], int size){
             initialize(size);
-            for (int i = 0; i < size; i++){
-                position[i][0] = array[i][0];
-                position[i][1] = array[i][1];
-            }
+            setArrayPosition(array, size);
             sizePosition = size;
             avaiblePosition();
         }
