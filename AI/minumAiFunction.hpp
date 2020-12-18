@@ -23,7 +23,7 @@ class MiniMax{
         int avaiblePositionArray[9][2];
         int sizeAvaiblePositionArray = 0;
         int avaiblePosition(){
-            cout << PURPLE << "I check avaible position..." << endl;
+            // cout << PURPLE << "I check avaible position..." << endl;
             for (int i = 0; i < 9; i++){
                 int x = i/3+1;
                 int y = i - i/3*3+1;
@@ -42,7 +42,7 @@ class MiniMax{
                 }
             }
             for(int i = 0; i < sizeAvaiblePositionArray; i++){
-                cout << GREEN << avaiblePositionArray[i][0] << "," << avaiblePositionArray[i][1] << RESET << endl;
+                // cout << GREEN << avaiblePositionArray[i][0] << "," << avaiblePositionArray[i][1] << RESET << endl;
             }
             return 0;
         }
@@ -56,7 +56,7 @@ class MiniMax{
             for (int i = 0; i < size; i++){
                 position[i][0] = array[i][0];
                 position[i][1] = array[i][1];
-                cout << array[i][0] << "," << array[i][1] << endl;
+                // cout << array[i][0] << "," << array[i][1] << endl;
             }
         }
         int checkWinner(){
@@ -64,6 +64,8 @@ class MiniMax{
             int horizontalCheck = 0;
             int verticalCheck = 0;
             for (int j = 0; j < 3; j++) {
+                horizontalCheck = 0;
+                verticalCheck = 0;
                 for (int i = 0; i < sizePosition; i = i+2){
                     if (position[i][1] == coordinateToCheck[1]) {
                         horizontalCheck ++;
@@ -72,12 +74,31 @@ class MiniMax{
                         verticalCheck ++;
                     }
                 }
-                cout << RED << verticalCheck << ","  << horizontalCheck << RESET << endl;
                 if (horizontalCheck == 3) {
                     cout << "The winner is X" << endl;
+                    break;
                 }
                 if (verticalCheck == 3) {
                     cout << "The winner is X" << endl;
+                    break;
+                }
+                horizontalCheck = 0;
+                verticalCheck = 0;
+                for (int i = 1; i < sizePosition; i = i+2){
+                    if (position[i][1] == coordinateToCheck[1]) {
+                        horizontalCheck ++;
+                    }
+                    if (position[i][0] == coordinateToCheck[0]) {
+                        verticalCheck ++;
+                    }
+                }
+                if (horizontalCheck == 3) {
+                    cout << "The winner is O" << endl;
+                    break;
+                }
+                if (verticalCheck == 3) {
+                    cout << "The winner is O" << endl;
+                    break;
                 }
                 coordinateToCheck[0]++;
                 coordinateToCheck[1]++;
@@ -88,7 +109,7 @@ class MiniMax{
             sizeAvaiblePositionArray = 0;
         }
     public:
-        void updateArrayPosition(int array[][2], int size) {
+        void updatePosition(int array[][2], int size) {
             cout << "I'm updating position..." << endl;
             sizePosition = size;
             clear();
