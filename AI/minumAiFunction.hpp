@@ -4,6 +4,8 @@
 #include <iostream>
 #include <array>
 
+/* I define the colour for the output, work only on linux */
+
 #define RED "\033[0;31m"
 #define BLACK "\033[0;30m"
 #define GREEN "\033[0;32m"
@@ -16,14 +18,33 @@
 
 using namespace std;
 
+/* Initialize the class Minimax.                *
+*  I use it to implement the minimax algorithm  *
+*  https://en.wikipedia.org/wiki/Minimax        */
+
 class MiniMax{
+    /*  This is the privat part of the class                                *
+    *   It contain the function for check avaible position, check winner,   *
+    *   to update the used position and implement the minimax algorithm     */ 
     private:
+        /* "position" is an integer bydimensional pointer array *
+        *   and contain all the used position of tic-tac-toe    */
         int** position;
+        /* "sizePosition" is an integer variable and I use it   *
+        *   to memorize the size of position array              */
         int sizePosition;
+        /* "position" is an integer bydimensional array         *
+        *   and contain all the avaible position of tic-tac-toe */
         int avaiblePositionArray[9][2];
+        /* "sizeAvaiblePositionArray" is an integer variable and I use it   *
+        *   to memorize the size of "avaiblePositionArray" array            */
         int sizeAvaiblePositionArray = 0;
-        int avaiblePosition(){
-            // cout << PURPLE << "I check avaible position..." << endl;
+        /*  "avaiblePosition" is a void used for check if a determinate     *
+        *   coordinate is busy or if it's avaible. If it's avible void      *
+        *   transcribes the value in "avaiblePositionArray"                 */
+        void avaiblePosition(){
+            /*  *
+            */
             for (int i = 0; i < 9; i++){
                 int x = i/3+1;
                 int y = i - i/3*3+1;
@@ -44,7 +65,6 @@ class MiniMax{
             for(int i = 0; i < sizeAvaiblePositionArray; i++){
                 // cout << GREEN << avaiblePositionArray[i][0] << "," << avaiblePositionArray[i][1] << RESET << endl;
             }
-            return 0;
         }
         void initialize(int size) {
             position = new int*[size];
@@ -81,6 +101,14 @@ class MiniMax{
                 if (verticalCheck == 3) {
                     cout << "The winner is X" << endl;
                     break;
+                }
+                for (int i = 0; i < sizePosition; i = i+2){
+                    if (position[i][1] == coordinateToCheck[1]) {
+                        horizontalCheck ++;
+                    }
+                    if (position[i][0] == coordinateToCheck[0]) {
+                        verticalCheck ++;
+                    }
                 }
                 horizontalCheck = 0;
                 verticalCheck = 0;
