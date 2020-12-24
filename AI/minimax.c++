@@ -16,9 +16,11 @@ int main(){
     int a[][2] =  {{1,1},{2,2},{1,2},{3,1},{2,1}};
     int b[][2] = {{1,1},{2,2},{1,2},{3,1},{2,1},{3,3},{1,3}};
     int c[][2] = {{1,2}, {2,1}, {2,2},{1,1},{2,3},{3,1}};
+    int d[][2] = {{1,1},{2,1},{2,2},{1,3},{3,3}};
     MiniMax  * prova = new MiniMax(a, 5);
     prova->updatePosition(b,7);
     prova->updatePosition(c, 6);
+    prova->updatePosition(d, 5);
     delete prova;
     
     return 0;
