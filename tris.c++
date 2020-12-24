@@ -173,8 +173,6 @@ int main(int argc, char** argv){
     init();
     //glutDisplayFunc(draw);
     glutMainLoop();
-    MiniMax prova = MiniMax(1);
-    ~prova();
     return 0;
 }
 
