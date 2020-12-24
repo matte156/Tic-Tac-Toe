@@ -14,11 +14,15 @@
 using namespace std;
 
 int main(){
+    vector <int> v;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
     int a[][2] =  {{1,1},{2,2},{1,2},{3,1},{2,1}};
     int b[][2] = {{1,1},{2,2},{1,2},{3,1},{2,1},{3,3},{1,3}};
     int c[][2] = {{1,2}, {2,1}, {2,2},{1,1},{2,3},{3,1}};
     int d[][2] = {{1,1},{2,1},{2,2},{1,3},{3,3}};
-    MiniMax  * prova = new MiniMax();
+    MiniMax  * prova = new MiniMax(v);
     delete prova;
     
     return 0;
