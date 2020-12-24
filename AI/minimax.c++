@@ -1,5 +1,6 @@
 #include <iostream>
-#include "minumAiFunction.hpp"
+//#include "minumAiFunction.hpp"
+#include "minimax.hpp"
 #define RED "\033[0;31m"
 #define BLACK "\033[0;30m"
 #define GREEN "\033[0;32m"
@@ -17,10 +18,7 @@ int main(){
     int b[][2] = {{1,1},{2,2},{1,2},{3,1},{2,1},{3,3},{1,3}};
     int c[][2] = {{1,2}, {2,1}, {2,2},{1,1},{2,3},{3,1}};
     int d[][2] = {{1,1},{2,1},{2,2},{1,3},{3,3}};
-    MiniMax  * prova = new MiniMax(a, 5);
-    prova->updatePosition(b,7);
-    prova->updatePosition(c, 6);
-    prova->updatePosition(d, 5);
+    MiniMax  * prova = new MiniMax();
     delete prova;
     
     return 0;
