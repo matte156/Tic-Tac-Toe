@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include <vector>
 
 using namespace std;
@@ -12,13 +11,13 @@ class MiniMax {
         vector<int> * prova = new vector<int>;
         void echoProva();
     public:
-    MiniMax (vector<int> &positions);
-    ~MiniMax(){
+        MiniMax (vector<int> &positions);
+        ~MiniMax(){
     }
 };
 
 MiniMax::MiniMax(vector<int> &positions){
-    
+    prova = &positions;
 }
 
 void MiniMax::echoProva() {
